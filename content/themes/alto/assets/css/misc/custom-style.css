@@ -1,0 +1,423 @@
+/* Custom styling for Alto theme */
+
+/* Update color scheme */
+:root {
+    /* Keep primary color from admin panel (defined in vars.css) */
+    --primary-text-color: #2c3e50;  /* Darker, richer text color */
+    --secondary-text-color: #7f8c8d;  /* Softer secondary text */
+    --light-gray-color: #f5f7fa;  /* Slightly blue-tinted background */
+    --dark-mode-bg-color: #1e2430;  /* Darker background for dark mode */
+    --dark-mode-primary-text-color: #ecf0f1;  /* Brighter text for dark mode */
+    
+    /* Add box shadow for depth */
+    --shadow-base: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Header styling */
+.gh-head {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 20px 0;
+}
+
+.dark-mode .gh-head {
+    border-bottom: 1px solid var(--dark-mode-border-color);
+}
+
+.gh-head-logo {
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    font-size: 24px;
+}
+
+.gh-head-menu .nav {
+    display: flex;
+    gap: 25px;
+}
+
+.gh-head-menu .nav li a {
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.gh-head-menu .nav li a:hover {
+    color: var(--primary-color);
+}
+
+.gh-head-menu .nav li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.gh-head-menu .nav li a:hover::after {
+    width: 100%;
+}
+
+.gh-head-actions-inner {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.gh-head-theme-switch {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-text-color);
+    transition: all 0.3s ease;
+}
+
+.gh-head-theme-switch:hover {
+    background-color: var(--light-gray-color);
+    transform: rotate(15deg);
+}
+
+.dark-mode .gh-head-theme-switch:hover {
+    background-color: var(--dark-mode-border-color);
+}
+
+.dark-mode .light-mode-icon {
+    display: none;
+}
+
+html:not(.dark-mode) .dark-mode-icon {
+    display: none;
+}
+
+.gh-head-theme-switch svg {
+    width: 18px;
+    height: 18px;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-to-top svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+/* Animation for posts */
+.post {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.post.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Post cards styling */
+.post {
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.post:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow);
+}
+
+.post-media img {
+    border-radius: 8px;
+}
+
+.post-title {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.post-excerpt {
+    line-height: 1.7;
+    color: var(--secondary-text-color);
+}
+
+/* Button styling */
+.gh-btn {
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.gh-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* No need to explicitly set the background color here anymore as it will use the admin-defined color */
+
+/* Footer styling */
+.gh-foot {
+    padding: 80px 0 30px;
+    background-color: var(--light-gray-color);
+    margin-top: 60px;
+}
+
+.dark-mode .gh-foot {
+    background-color: var(--dark-mode-darker-bg-color);
+    border-top: 1px solid var(--dark-mode-border-color);
+}
+
+.gh-foot-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.gh-foot-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.gh-foot-brand {
+    flex: 1 1 300px;
+}
+
+.gh-foot-logo {
+    max-height: 50px;
+    margin-bottom: 20px;
+}
+
+.gh-foot-site-title {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.gh-foot-description {
+    color: var(--secondary-text-color);
+    line-height: 1.6;
+    font-size: 15px;
+    max-width: 400px;
+}
+
+.gh-foot-menu {
+    flex: 0 1 200px;
+}
+
+.gh-foot-menu-title,
+.gh-foot-social-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.gh-foot-menu .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.gh-foot-menu .nav li a {
+    color: var(--secondary-text-color);
+    transition: color 0.2s ease;
+}
+
+.gh-foot-menu .nav li a:hover {
+    color: var(--primary-color);
+}
+
+.gh-foot-social {
+    flex: 0 1 200px;
+}
+
+.gh-foot-social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.gh-foot-social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.gh-foot-social-links a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gh-foot-social-links a svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+}
+
+.gh-foot-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid var(--mid-gray-color);
+    font-size: 14px;
+    color: var(--secondary-text-color);
+}
+
+.dark-mode .gh-foot-bottom {
+    border-top-color: var(--dark-mode-border-color);
+}
+
+.gh-powered-by a {
+    color: var(--secondary-text-color);
+    transition: color 0.2s ease;
+}
+
+.gh-powered-by a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+    .gh-foot-top {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .gh-foot-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* Featured posts section */
+.featured-posts-header {
+    text-align: center;
+    padding: 40px 0 30px;
+}
+
+.featured-posts-title {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 10px;
+}
+
+.featured-posts-description {
+    color: var(--secondary-text-color);
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.featured-posts {
+    margin-bottom: 80px;
+}
+
+.featured-post {
+    padding: 20px;
+    margin: 10px;
+    border-radius: 12px;
+    background: var(--white-color);
+    box-shadow: var(--shadow-base);
+    transition: all 0.3s ease;
+}
+
+.dark-mode .featured-post {
+    background: var(--dark-mode-darker-bg-color);
+}
+
+.featured-post:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-shadow);
+}
+
+.featured-post .post-media {
+    margin-bottom: 25px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.featured-post:hover img {
+    transform: scale(1.03);
+    transition: transform 0.5s ease;
+}
+
+.featured-post .post-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.featured-post .post-meta {
+    margin-bottom: 12px;
+}
+
+.featured-post .post-excerpt {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.featured-post-more {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 15px;
+    transition: all 0.2s ease;
+}
+
+.featured-post-more:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* Dark mode adjustments */
+.dark-mode .post:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.dark-mode .gh-head {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}

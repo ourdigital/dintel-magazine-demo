@@ -1,0 +1,13 @@
+# System files
+.DS_Store
+.Trash/
+
+# User directories
+../
+!./
+
+# Node modules
+node_modules/
+
+# Ghost database
+content/data/ghost-*.db

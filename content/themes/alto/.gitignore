@@ -1,0 +1,38 @@
+# Node modules
+node_modules/
+
+# Compiled assets (can be regenerated)
+assets/built/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+.npm
+.yarn
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variable files
+.env
+.env.*
+
+# Mac files
+.DS_Store
+
+# Distribution files
+dist/
+
+# Zip files
+*.zip
+
+# IDE Specific files
+.idea/
+.vscode/
+*.swp
+*.swo
